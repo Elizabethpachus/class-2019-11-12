@@ -1,0 +1,30 @@
+---
+title: "Class 11/12/19"
+author: "Erin Guetzloe"
+date: "11/12/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(googlesheets4)
+
+sheets_deauth()
+
+a <- read_sheet("13NhlT-Oik5P4NOKRWwrJ7xZQlddFNk81HHEw9wkWglM")
+
+```
+
+```{r}
+
+x <- lm(dvote ~ partisanship, a)
+
+ggplot(x, aes(partisanship, dvote)) +
+  geom_jitter() +
+  geom_smooth(method = "lm")
+
+
+```
+
